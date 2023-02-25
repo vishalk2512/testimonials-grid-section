@@ -1,0 +1,284 @@
+/* ===== Base ===== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+::-moz-selection {
+  background-color: #b3d4fc;
+  color: #000000;
+  text-shadow: none;
+}
+
+::selection {
+  background-color: #b3d4fc;
+  color: #000000;
+  text-shadow: none;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background-color: var(--clr-light-grayish-blue);
+  padding: 7em var(--gap);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+/* ===== Variable ===== */
+
+:root {
+  /* colors */
+  --clr-moderate-violet: hsl(263, 55%, 52%);
+  --clr-very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --clr-Very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-light-gray: hsl(0, 0%, 81%);
+  --clr-light-grayish-blue: hsl(210, 46%, 95%);
+
+  /* font size */
+  --fs-title: 2rem;
+  --fs-body: 1.3rem;
+  --fs-label: 1.1rem;
+
+  /* font weights */
+  --fw-regular: 500;
+  --fw-bold: 600;
+
+  /* others */
+  --avatar-size: 3.2rem;
+  --gap: 2.4rem;
+  --card-padding: 3.2em;
+}
+
+/* ===== Wrapper ===== */
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "daniel"
+    "jonathan"
+    "jeanette"
+    "patrick"
+    "kira";
+  max-width: 111rem;
+  gap: var(--gap);
+}
+
+/* ===== Testimonial =====  */
+
+.testimonial {
+  padding: var(--card-padding);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  box-shadow: 4px 5px 20px 1px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 4px 5px 20px 1px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 4px 5px 20px 1px rgba(0, 0, 0, 0.12);
+  animation: scale-up 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-animation: scale-up 1000ms linear;
+  will-change: transform;
+}
+
+.testimonial__header {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.testimonial__avatar {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid hsl(210, 46%, 95%, 0.3);
+}
+
+.testimonial__detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.testimonial__name {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: 1;
+  letter-spacing: 0.2px;
+}
+
+.testimonial__label {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-bold);
+  opacity: 0.5;
+  letter-spacing: 0.2px;
+}
+
+.testimonial__title {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+}
+
+.testimonial__text {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+
+.testimonial--daniel {
+  background-color: var(--clr-moderate-violet);
+  color: var(--clr-white);
+  grid-area: daniel;
+  position: relative;
+}
+
+.testimonial--daniel .big-quote {
+  position: absolute;
+  top: 0;
+  right: 10%;
+  z-index: -99;
+}
+
+.testimonial--jonathan {
+  background-color: var(--clr-very-dark-grayish-blue);
+  color: var(--clr-white);
+  grid-area: jonathan;
+}
+
+.testimonial--jeanette {
+  background-color: var(--clr-white);
+  color: var(--clr-Very-dark-blackish-blue);
+  grid-area: jeanette;
+}
+
+.testimonial--patrick {
+  background-color: var(--clr-Very-dark-blackish-blue);
+  color: var(--clr-white);
+  grid-area: patrick;
+}
+
+.testimonial--kira {
+  background-color: var(--clr-white);
+  color: var(--clr-Very-dark-blackish-blue);
+  grid-area: kira;
+}
+
+.testimonial--daniel .testimonial__text,
+.testimonial--jonathan .testimonial__text,
+.testimonial--patrick .testimonial__text {
+  color: hsla(0, 0%, 100%, 0.7);
+}
+
+.testimonial--jeanette .testimonial__text,
+.testimonial--kira .testimonial__text {
+  color: hsla(219, 29%, 14%, 0.7);
+}
+
+/* 600px */
+@media screen and (min-width: 37.5rem) {
+  .wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "daniel daniel"
+      "jonathan jeanette"
+      "patrick patrick"
+      "kira kira";
+  }
+
+  .testimonial--daniel .big-quote {
+    right: 15%;
+  }
+}
+
+/* 1000px */
+@media screen and (min-width: 62.5rem) {
+  .wrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+  }
+}
+
+/* ===== animation ===== */
+@keyframes scale-up {
+  0% {
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -moz-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    -o-transform: scale(0.95);
+  }
+  70% {
+    transform: scale(0.97);
+    -webkit-transform: scale(0.97);
+    -moz-transform: scale(0.97);
+    -ms-transform: scale(0.97);
+    -o-transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+  }
+}
+
+/* ===== reduce motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
